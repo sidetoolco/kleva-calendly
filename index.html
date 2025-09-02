@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Meeting | Kleva - AI Debt Collection</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.kleva.co/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://www.kleva.co/favicon.svg">
+    <link rel="shortcut icon" href="https://www.kleva.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.kleva.co/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-gray-900);
+            background: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 32px;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 60px;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Meeting Section */
+        .meeting-section {
+            padding: 1rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            color: var(--color-black);
+        }
+
+        .title-highlight {
+            display: inline;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--color-gray-700);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            line-height: 1.5;
+        }
+
+        /* Metrics ticker */
+        .metrics-ticker {
+            background: var(--color-gray-50);
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ticker-label {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            font-weight: 500;
+        }
+
+        .ticker-value {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+
+        .ticker-separator {
+            color: var(--color-gray-300);
+        }
+
+        /* Trust badges */
+        .trust-section {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: 1rem;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .client-logo {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Calendly Container */
+        .calendly-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--color-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .calendly-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 800px;
+        }
+        
+        .calendly-inline-widget {
+            position: relative !important;
+            width: 100% !important;
+            height: 800px !important;
+            min-height: 800px !important;
+        }
+        
+        .calendly-inline-widget iframe {
+            height: 800px !important;
+            min-height: 800px !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .calendly-container {
+                padding: 1rem;
+            }
+            
+            .calendly-wrapper,
+            .calendly-inline-widget,
+            .calendly-inline-widget iframe {
+                height: 700px !important;
+                min-height: 700px !important;
+            }
+
+            .metrics-ticker {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .ticker-item {
+                font-size: 0.75rem;
+            }
+
+            .logos-container {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://www.kleva.co/_astro/kleva-logo.CCE6pgfw.png" alt="Kleva" class="logo-img">
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="meeting-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h1 class="hero-title">
+                        AI that recovers <span class="title-highlight">25% more debt</span> at 70% less cost
+                    </h1>
+                    <p class="hero-description">
+                        Transform your collections with AI agents that never quit, never burn out, and speak perfect Spanish and Portuguese.<br>
+                        Proven across 900,000+ minutes monthly in Latin America.
+                    </p>
+                </div>
+
+                <!-- Metrics Ticker -->
+                <div class="metrics-ticker">
+                    <span class="ticker-item">
+                        <span class="ticker-label">Live Now:</span>
+                        <span class="ticker-value">2,834 concurrent calls</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-label">Today:</span>
+                        <span class="ticker-value">$487K collected</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-label">Success Rate:</span>
+                        <span class="ticker-value">73%</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-label">Avg Handle Time:</span>
+                        <span class="ticker-value">1 min</span>
+                    </span>
+                </div>
+
+                <!-- Trust Section -->
+                <div class="trust-section">
+                    <p class="trust-label">Trusted by Leading Financial Institutions</p>
+                    <div class="logos-container">
+                        <!-- VANA Logo -->
+                        <div class="client-logo">
+                            <svg width="120" height="40" viewBox="0 0 120 40" fill="none">
+                                <text x="10" y="28" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0066CC">VANA</text>
+                            </svg>
+                        </div>
+                        <!-- ADT Logo -->
+                        <div class="client-logo">
+                            <svg width="100" height="40" viewBox="0 0 100 40" fill="none">
+                                <text x="10" y="28" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#FF0000">ADT</text>
+                            </svg>
+                        </div>
+                        <!-- Diners Club Logo -->
+                        <div class="client-logo">
+                            <svg width="180" height="40" viewBox="0 0 180 40" fill="none">
+                                <circle cx="20" cy="20" r="18" stroke="#003B5C" stroke-width="2" fill="none"></circle>
+                                <circle cx="40" cy="20" r="18" stroke="#003B5C" stroke-width="2" fill="none"></circle>
+                                <text x="65" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#003B5C">DINERS CLUB</text>
+                            </svg>
+                        </div>
+                        <!-- Banco Pichincha Logo -->
+                        <div class="client-logo">
+                            <svg width="180" height="40" viewBox="0 0 180 40" fill="none">
+                                <rect x="5" y="10" width="20" height="20" fill="#FFD700"></rect>
+                                <text x="35" y="26" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#1a1a1a">Banco Pichincha</text>
+                            </svg>
+                        </div>
+                        <!-- Ficohsa Logo -->
+                        <div class="client-logo">
+                            <svg width="140" height="40" viewBox="0 0 140 40" fill="none">
+                                <rect x="5" y="12" width="4" height="16" fill="#0066CC"></rect>
+                                <rect x="12" y="12" width="4" height="16" fill="#0066CC"></rect>
+                                <rect x="19" y="12" width="4" height="16" fill="#0066CC"></rect>
+                                <text x="30" y="26" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0066CC">FICOHSA</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendly Widget -->
+                <div class="calendly-container">
+                    <div class="calendly-wrapper">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/jack-weaver-sidetool/30-minute-meeting-kleva-static" style="min-width:320px;height:800px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Calendly inline widget end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
