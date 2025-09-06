@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatización de Cobranza | Herramientas de Seguimiento de Pagos | Kleva</title>
+    <meta name="description" content="Automatización completa de cobranza preventiva y seguimiento de pagos. Herramientas de recuperación de cartera vencida para bancos y financieras en Latinoamérica.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.kleva.co/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://www.kleva.co/favicon.svg">
+    <link rel="shortcut icon" href="https://www.kleva.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.kleva.co/apple-touch-icon.png">
+    
+    <!-- Preconnect to Calendly for faster loading -->
+    <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics / GTM tracking parameter -->
+    <script>
+        // Track UTM parameters
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'page_variant': 'generics',
+            'landing_page': '/google/generics'
+        });
+    </script>
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+            --color-primary: #667eea;
+            --color-primary-dark: #5a67d8;
+            --color-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-gray-900);
+            background: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 32px;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 60px;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Meeting Section */
+        .meeting-section {
+            padding: 1rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            color: var(--color-black);
+        }
+
+        .title-highlight {
+            display: inline;
+            position: relative;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--color-gray-700);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Automation Features */
+        .automation-showcase {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .automation-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-black);
+        }
+
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .automation-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .automation-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .automation-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-black);
+        }
+
+        .automation-card-description {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+            line-height: 1.5;
+        }
+
+        /* Process Timeline */
+        .process-section {
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+
+        .process-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-black);
+        }
+
+        .process-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid var(--color-gray-200);
+        }
+
+        .process-step:last-child {
+            border-left: none;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--color-green);
+            border-radius: 50%;
+            border: 3px solid var(--color-white);
+            box-shadow: 0 0 0 2px var(--color-green);
+        }
+
+        .process-step-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-black);
+        }
+
+        .process-step-description {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+        }
+
+        /* ROI Calculator */
+        .roi-section {
+            background: var(--color-gray-50);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .roi-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+        }
+
+        .roi-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .roi-stat {
+            text-align: center;
+        }
+
+        .roi-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-green);
+            margin-bottom: 0.25rem;
+        }
+
+        .roi-label {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .trust-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: 1rem;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Calendly Container */
+        .calendly-container {
+            max-width: 1000px;
+            margin: 2rem auto 0;
+            background: var(--color-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .calendly-wrapper {
+            border-radius: 12px;
+            position: relative;
+            width: 100%;
+            height: 1050px;
+            overflow: visible;
+        }
+        
+        .calendly-inline-widget {
+            position: relative !important;
+            width: 100% !important;
+            height: 1050px !important;
+            min-height: 1050px !important;
+        }
+        
+        .calendly-inline-widget iframe {
+            height: 1050px !important;
+            min-height: 1050px !important;
+            border: none !important;
+            overflow: hidden !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .automation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .calendly-container {
+                padding: 1rem;
+            }
+            
+            .calendly-wrapper,
+            .calendly-inline-widget,
+            .calendly-inline-widget iframe {
+                height: 900px !important;
+                min-height: 900px !important;
+            }
+
+            .logos-container {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://www.kleva.co/_astro/kleva-logo.CCE6pgfw.png" alt="Kleva" class="logo-img">
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="meeting-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h1 class="hero-title">
+                        Simplifica tu Cobranza con <span class="title-highlight">Automatización Inteligente</span>
+                    </h1>
+                    <p class="hero-description">
+                        Herramientas que optimizan el seguimiento de pagos y la comunicación con deudores. 
+                        Libera a tu equipo para enfocarse en casos que realmente requieren atención personalizada.
+                    </p>
+                </div>
+
+                <!-- Automation Showcase -->
+                <div class="automation-showcase">
+                    <h2 class="automation-title">Potencia tu Equipo con Herramientas Inteligentes</h2>
+                    <div class="automation-grid">
+                        <div class="automation-card">
+                            <div class="automation-icon">🔄</div>
+                            <h3 class="automation-card-title">Recordatorios Automáticos</h3>
+                            <p class="automation-card-description">
+                                Sistema inteligente que envía recordatorios de pago personalizados por WhatsApp, SMS y email en el momento óptimo.
+                            </p>
+                        </div>
+                        <div class="automation-card">
+                            <div class="automation-icon">📊</div>
+                            <h3 class="automation-card-title">Seguimiento de Pagos Pendientes</h3>
+                            <p class="automation-card-description">
+                                Monitoreo automático 24/7 de todas las cuentas con alertas inteligentes y priorización por probabilidad de pago.
+                            </p>
+                        </div>
+                        <div class="automation-card">
+                            <div class="automation-icon">🎯</div>
+                            <h3 class="automation-card-title">Cobranza Preventiva</h3>
+                            <p class="automation-card-description">
+                                Identifica cuentas en riesgo antes del vencimiento y activa campañas preventivas automáticas.
+                            </p>
+                        </div>
+                        <div class="automation-card">
+                            <div class="automation-icon">💼</div>
+                            <h3 class="automation-card-title">Gestión de Cartera Vencida</h3>
+                            <p class="automation-card-description">
+                                Automatización completa para recuperación de deuda con estrategias personalizadas por segmento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Timeline -->
+                <div class="process-section">
+                    <h2 class="process-title">Tu Camino hacia una Cobranza Más Eficiente</h2>
+                    <div class="process-timeline">
+                        <div class="process-step">
+                            <h3 class="process-step-title">1. Integración Instantánea</h3>
+                            <p class="process-step-description">Conectamos con tu sistema actual en menos de 24 horas sin interrumpir operaciones.</p>
+                        </div>
+                        <div class="process-step">
+                            <h3 class="process-step-title">2. Configuración Inteligente</h3>
+                            <p class="process-step-description">Personalizamos flujos de trabajo según tu industria y tipo de cartera.</p>
+                        </div>
+                        <div class="process-step">
+                            <h3 class="process-step-title">3. Automatización Activa</h3>
+                            <p class="process-step-description">Sistema opera 24/7 con recordatorios, seguimiento y negociación automatizada.</p>
+                        </div>
+                        <div class="process-step">
+                            <h3 class="process-step-title">4. Optimización Continua</h3>
+                            <p class="process-step-description">IA aprende y mejora estrategias basándose en resultados reales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROI Section -->
+                <div class="roi-section">
+                    <h2 class="roi-title">Resultados que Impulsan tu Crecimiento</h2>
+                    <div class="roi-stats">
+                        <div class="roi-stat">
+                            <div class="roi-value">85%</div>
+                            <div class="roi-label">Reducción trabajo manual</div>
+                        </div>
+                        <div class="roi-stat">
+                            <div class="roi-value">3x</div>
+                            <div class="roi-label">Más contactos efectivos</div>
+                        </div>
+                        <div class="roi-stat">
+                            <div class="roi-value">45%</div>
+                            <div class="roi-label">Menor tiempo de recuperación</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Section -->
+                <div class="trust-section">
+                    <p class="trust-label">Plataforma de automatización elegida por bancos líderes</p>
+                    <div class="logos-container">
+                        <img src="logos/vana-logo.png" alt="VANA" class="client-logo">
+                        <img src="logos/adt.png" alt="ADT" class="client-logo">
+                        <img src="logos/diners-club-logo.svg" alt="Diners Club" class="client-logo">
+                        <img src="logos/banco-pichincha-logo.png" alt="Banco Pichincha" class="client-logo">
+                        <img src="logos/ficohsa-logo.png" alt="Ficohsa" class="client-logo">
+                    </div>
+                </div>
+
+                <!-- Calendly Widget -->
+                <div class="calendly-container">
+                    <div class="calendly-wrapper">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/jack-weaver-sidetool/30-minute-meeting-kleva-static?utm_source=google&utm_medium=search&utm_campaign=generics" style="min-width:320px;height:1050px;"></div>
+                        <!-- Calendly inline widget end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Load Calendly script with priority -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
+    
+    <!-- Track page view -->
+    <script>
+        // Track page variant for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'Automatización de Cobranza - Generics',
+                'page_location': window.location.href,
+                'page_path': '/google/generics'
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA para Cobranzas | Software con Inteligencia Artificial | Kleva AI</title>
+    <meta name="description" content="IA especializada en cobranzas con voz natural. Software de cobranza con inteligencia artificial que reduce mora, gestiona deudores y logra 73% de éxito en negociaciones.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.kleva.co/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://www.kleva.co/favicon.svg">
+    <link rel="shortcut icon" href="https://www.kleva.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.kleva.co/apple-touch-icon.png">
+    
+    <!-- Preconnect to Calendly for faster loading -->
+    <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics / GTM tracking parameter -->
+    <script>
+        // Track UTM parameters
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'page_variant': 'high-intent',
+            'landing_page': '/google/high-intent'
+        });
+    </script>
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+            --color-primary: #667eea;
+            --color-primary-dark: #5a67d8;
+            --color-purple: #9333ea;
+            --color-blue: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-gray-900);
+            background: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 32px;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 60px;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Meeting Section */
+        .meeting-section {
+            padding: 1rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            color: var(--color-black);
+        }
+
+        .title-highlight {
+            display: inline;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--color-gray-700);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* AI Stats Banner */
+        .ai-stats-banner {
+            background: linear-gradient(135deg, #667eea15 0%, #9333ea15 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .ai-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .ai-stat {
+            text-align: center;
+        }
+
+        .ai-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .ai-stat-label {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+            font-weight: 500;
+        }
+
+        /* AI Features Showcase */
+        .ai-features-section {
+            margin: 3rem auto;
+            max-width: 1000px;
+        }
+
+        .ai-features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .ai-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .ai-feature-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #9333ea 100%);
+        }
+
+        .ai-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .ai-feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ai-feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--color-black);
+        }
+
+        .ai-feature-description {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .ai-feature-benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ai-feature-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--color-gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-feature-benefit::before {
+            content: '✓';
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* AI Technology Section */
+        .ai-tech-section {
+            background: var(--color-gray-50);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .ai-tech-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-black);
+        }
+
+        .ai-tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .ai-tech-item {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .ai-tech-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-tech-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-tech-description {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .trust-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: 1rem;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Calendly Container */
+        .calendly-container {
+            max-width: 1000px;
+            margin: 2rem auto 0;
+            background: var(--color-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .calendly-wrapper {
+            border-radius: 12px;
+            position: relative;
+            width: 100%;
+            height: 1050px;
+            overflow: visible;
+        }
+        
+        .calendly-inline-widget {
+            position: relative !important;
+            width: 100% !important;
+            height: 1050px !important;
+            min-height: 1050px !important;
+        }
+        
+        .calendly-inline-widget iframe {
+            height: 1050px !important;
+            min-height: 1050px !important;
+            border: none !important;
+            overflow: hidden !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .ai-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ai-features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calendly-container {
+                padding: 1rem;
+            }
+            
+            .calendly-wrapper,
+            .calendly-inline-widget,
+            .calendly-inline-widget iframe {
+                height: 900px !important;
+                min-height: 900px !important;
+            }
+
+            .logos-container {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://www.kleva.co/_astro/kleva-logo.CCE6pgfw.png" alt="Kleva" class="logo-img">
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="meeting-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h1 class="hero-title">
+                        Cobranza Más Humana con <span class="title-highlight">Inteligencia Artificial</span>
+                    </h1>
+                    <p class="hero-description">
+                        Tecnología que entiende y se adapta a cada deudor. 
+                        Conversaciones naturales en 45+ dialectos que logran mejores acuerdos de pago.
+                    </p>
+                </div>
+
+                <!-- AI Stats Banner -->
+                <div class="ai-stats-banner">
+                    <div class="ai-stats-grid">
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">900k+</div>
+                            <div class="ai-stat-label">Minutos/mes en llamadas IA</div>
+                        </div>
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">73%</div>
+                            <div class="ai-stat-label">Tasa de éxito</div>
+                        </div>
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">45+</div>
+                            <div class="ai-stat-label">Dialectos latinos</div>
+                        </div>
+                        <div class="ai-stat">
+                            <div class="ai-stat-value">24/7</div>
+                            <div class="ai-stat-label">Operación continua</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Features -->
+                <div class="ai-features-section">
+                    <h2 class="ai-features-title">Capacidades Avanzadas para Mejores Resultados</h2>
+                    <div class="ai-features-grid">
+                        <div class="ai-feature-card">
+                            <div class="ai-feature-icon">🧠</div>
+                            <h3 class="ai-feature-title">IA con Voz Natural</h3>
+                            <p class="ai-feature-description">
+                                Conversaciones indistinguibles de un humano con entonación perfecta en español y portugués.
+                            </p>
+                            <ul class="ai-feature-benefits">
+                                <li class="ai-feature-benefit">Voces personalizadas por región</li>
+                                <li class="ai-feature-benefit">Comprensión de contexto cultural</li>
+                                <li class="ai-feature-benefit">Respuestas empáticas y naturales</li>
+                            </ul>
+                        </div>
+                        <div class="ai-feature-card">
+                            <div class="ai-feature-icon">📊</div>
+                            <h3 class="ai-feature-title">IA para Reducción de Mora</h3>
+                            <p class="ai-feature-description">
+                                Algoritmos especializados que predicen y previenen mora antes de que ocurra.
+                            </p>
+                            <ul class="ai-feature-benefits">
+                                <li class="ai-feature-benefit">Predicción con 47 variables</li>
+                                <li class="ai-feature-benefit">Estrategias personalizadas</li>
+                                <li class="ai-feature-benefit">Reducción de mora del 25%</li>
+                            </ul>
+                        </div>
+                        <div class="ai-feature-card">
+                            <div class="ai-feature-icon">🎯</div>
+                            <h3 class="ai-feature-title">IA para Gestión de Deudores</h3>
+                            <p class="ai-feature-description">
+                                Sistema inteligente que segmenta y gestiona deudores con estrategias óptimas.
+                            </p>
+                            <ul class="ai-feature-benefits">
+                                <li class="ai-feature-benefit">Segmentación automática</li>
+                                <li class="ai-feature-benefit">Priorización inteligente</li>
+                                <li class="ai-feature-benefit">Personalización por perfil</li>
+                            </ul>
+                        </div>
+                        <div class="ai-feature-card">
+                            <div class="ai-feature-icon">📞</div>
+                            <h3 class="ai-feature-title">Cobranza Telefónica con IA</h3>
+                            <p class="ai-feature-description">
+                                Llamadas automáticas con IA que negocia como tu mejor agente 24/7.
+                            </p>
+                            <ul class="ai-feature-benefits">
+                                <li class="ai-feature-benefit">2,834 llamadas simultáneas</li>
+                                <li class="ai-feature-benefit">Negociación en tiempo real</li>
+                                <li class="ai-feature-benefit">Grabación y análisis completo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Technology -->
+                <div class="ai-tech-section">
+                    <h2 class="ai-tech-title">Innovación que Marca la Diferencia</h2>
+                    <div class="ai-tech-grid">
+                        <div class="ai-tech-item">
+                            <div class="ai-tech-number">47</div>
+                            <div class="ai-tech-label">Variables de IA</div>
+                            <div class="ai-tech-description">Para predecir probabilidad de pago</div>
+                        </div>
+                        <div class="ai-tech-item">
+                            <div class="ai-tech-number">∞</div>
+                            <div class="ai-tech-label">Aprendizaje Continuo</div>
+                            <div class="ai-tech-description">Mejora con cada interacción</div>
+                        </div>
+                        <div class="ai-tech-item">
+                            <div class="ai-tech-number">100%</div>
+                            <div class="ai-tech-label">Compliance IA</div>
+                            <div class="ai-tech-description">Cumplimiento regulatorio automático</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="cta-section">
+                    <h2 class="cta-title">Descubre el Futuro de las Cobranzas</h2>
+                    <p class="cta-description">
+                        Únete a los líderes financieros que ya están mejorando sus resultados 
+                        con tecnología inteligente y conversaciones más efectivas.
+                    </p>
+                    <div class="cta-badge">Demo en vivo con resultados reales de IA</div>
+                </div>
+
+                <!-- Trust Section -->
+                <div class="trust-section">
+                    <p class="trust-label">Líderes en IA para cobranzas B2B en Latinoamérica</p>
+                    <div class="logos-container">
+                        <img src="logos/vana-logo.png" alt="VANA" class="client-logo">
+                        <img src="logos/adt.png" alt="ADT" class="client-logo">
+                        <img src="logos/diners-club-logo.svg" alt="Diners Club" class="client-logo">
+                        <img src="logos/banco-pichincha-logo.png" alt="Banco Pichincha" class="client-logo">
+                        <img src="logos/ficohsa-logo.png" alt="Ficohsa" class="client-logo">
+                    </div>
+                </div>
+
+                <!-- Calendly Widget -->
+                <div class="calendly-container">
+                    <div class="calendly-wrapper">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/jack-weaver-sidetool/30-minute-meeting-kleva-static?utm_source=google&utm_medium=search&utm_campaign=high-intent" style="min-width:320px;height:1050px;"></div>
+                        <!-- Calendly inline widget end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Load Calendly script with priority -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
+    
+    <!-- Track page view -->
+    <script>
+        // Track page variant for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'IA para Cobranzas - High Intent',
+                'page_location': window.location.href,
+                'page_path': '/google/high-intent'
+            });
+        }
+    </script>
+</body>
+</html>

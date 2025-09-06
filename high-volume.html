@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software de Cobranzas | Sistema CRM de Gestión | Kleva</title>
+    <meta name="description" content="Software de cobranzas y CRM especializado para gestión de cartera. Sistema completo de gestión de cobranzas con IA. Reduce costos hasta 70% y recupera 25% más deuda.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.kleva.co/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://www.kleva.co/favicon.svg">
+    <link rel="shortcut icon" href="https://www.kleva.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.kleva.co/apple-touch-icon.png">
+    
+    <!-- Preconnect to Calendly for faster loading -->
+    <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics / GTM tracking parameter -->
+    <script>
+        // Track UTM parameters
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'page_variant': 'high-volume',
+            'landing_page': '/google/high-volume'
+        });
+    </script>
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+            --color-primary: #667eea;
+            --color-primary-dark: #5a67d8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-gray-900);
+            background: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 32px;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 60px;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Meeting Section */
+        .meeting-section {
+            padding: 1rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            color: var(--color-black);
+        }
+
+        .title-highlight {
+            display: inline;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--color-gray-700);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Key Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .feature-card {
+            background: var(--color-gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+        }
+
+        /* Trust badges */
+        .trust-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .trust-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: 1rem;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Benefits List */
+        .benefits-container {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .benefits-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-black);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .benefit-check {
+            color: var(--color-primary);
+            font-size: 1.25rem;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            color: var(--color-gray-700);
+        }
+
+        /* Calendly Container */
+        .calendly-container {
+            max-width: 1000px;
+            margin: 2rem auto 0;
+            background: var(--color-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .calendly-wrapper {
+            border-radius: 12px;
+            position: relative;
+            width: 100%;
+            height: 1050px;
+            overflow: visible;
+        }
+        
+        .calendly-inline-widget {
+            position: relative !important;
+            width: 100% !important;
+            height: 1050px !important;
+            min-height: 1050px !important;
+        }
+        
+        .calendly-inline-widget iframe {
+            height: 1050px !important;
+            min-height: 1050px !important;
+            border: none !important;
+            overflow: hidden !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .calendly-container {
+                padding: 1rem;
+            }
+            
+            .calendly-wrapper,
+            .calendly-inline-widget,
+            .calendly-inline-widget iframe {
+                height: 900px !important;
+                min-height: 900px !important;
+            }
+
+            .logos-container {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://www.kleva.co/_astro/kleva-logo.CCE6pgfw.png" alt="Kleva" class="logo-img">
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="meeting-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h1 class="hero-title">
+                        Transforma tu Gestión de Cobranzas con <span class="title-highlight">Tecnología Inteligente</span>
+                    </h1>
+                    <p class="hero-description">
+                        Sistema integral que optimiza cada etapa del proceso de cobranza. 
+                        Ayudamos a equipos financieros a recuperar más cartera mientras reducen costos operativos.
+                    </p>
+                </div>
+
+                <!-- Key Features -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">CRM Especializado</div>
+                        <div class="feature-description">Sistema completo de gestión de cartera y deudores</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-title">IA Integrada</div>
+                        <div class="feature-description">Automatización inteligente de cobranzas 24/7</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <div class="feature-title">73% Tasa de Éxito</div>
+                        <div class="feature-description">Negociaciones efectivas con IA avanzada</div>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="benefits-container">
+                    <h2 class="benefits-title">Todo lo que Necesitas para una Cobranza Más Eficiente</h2>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Sistema completo de gestión de cartera vencida</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">CRM especializado para equipos de cobranza</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Automatización de procesos manuales</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Integración con sistemas bancarios</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Reportes y análisis en tiempo real</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Cumplimiento regulatorio garantizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Section -->
+                <div class="trust-section">
+                    <p class="trust-label">Software de cobranzas usado por líderes financieros</p>
+                    <div class="logos-container">
+                        <img src="logos/vana-logo.png" alt="VANA" class="client-logo">
+                        <img src="logos/adt.png" alt="ADT" class="client-logo">
+                        <img src="logos/diners-club-logo.svg" alt="Diners Club" class="client-logo">
+                        <img src="logos/banco-pichincha-logo.png" alt="Banco Pichincha" class="client-logo">
+                        <img src="logos/ficohsa-logo.png" alt="Ficohsa" class="client-logo">
+                    </div>
+                </div>
+
+                <!-- Calendly Widget -->
+                <div class="calendly-container">
+                    <div class="calendly-wrapper">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/jack-weaver-sidetool/30-minute-meeting-kleva-static?utm_source=google&utm_medium=search&utm_campaign=high-volume" style="min-width:320px;height:1050px;"></div>
+                        <!-- Calendly inline widget end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Load Calendly script with priority -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
+    
+    <!-- Track page view -->
+    <script>
+        // Track page variant for analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'Software de Cobranzas - High Volume',
+                'page_location': window.location.href,
+                'page_path': '/google/high-volume'
+            });
+        }
+    </script>
+</body>
+</html>
