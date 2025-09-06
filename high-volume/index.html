@@ -568,6 +568,163 @@
           }
         });
       });
+      
+      // Additional Comprehensive Event Tracking
+      (function() {
+        const pageName = "High Volume - Software de Cobranzas";
+        const campaign = "high-volume";
+        let startTime = Date.now();
+        let engagementTime = 0;
+        let scrollDepthReached = 0;
+        
+        // Track engagement time every 10 seconds
+        setInterval(() => {
+          if (!document.hidden) {
+            engagementTime += 10;
+            mixpanel.track('Engagement Milestone', {
+              'seconds_engaged': engagementTime,
+              'page': pageName,
+              'campaign': campaign
+            });
+          }
+        }, 10000);
+        
+        // Track scroll milestones
+        window.addEventListener('scroll', () => {
+          const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+          
+          [25, 50, 75, 100].forEach(milestone => {
+            if (scrollPercent >= milestone && scrollDepthReached < milestone) {
+              scrollDepthReached = milestone;
+              mixpanel.track('Scroll Milestone', {
+                'depth_percent': milestone,
+                'page': pageName,
+                'campaign': campaign,
+                'time_to_scroll': Math.round((Date.now() - startTime) / 1000)
+              });
+            }
+          });
+        });
+        
+        // Track feature interactions
+        document.querySelectorAll('.feature-card').forEach((card, i) => {
+          card.addEventListener('mouseenter', () => {
+            mixpanel.track('Feature Interest', {
+              'feature': card.querySelector('.feature-title')?.textContent,
+              'index': i + 1,
+              'page': pageName,
+              'campaign': campaign
+            });
+          });
+        });
+        
+        // Track benefit views
+        const benefitObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              mixpanel.track('Benefit Section Viewed', {
+                'section': 'benefits',
+                'page': pageName,
+                'campaign': campaign
+              });
+              benefitObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        const benefitsSection = document.querySelector('.benefits-container');
+        if (benefitsSection) benefitObserver.observe(benefitsSection);
+        
+        // Track trust section
+        const trustObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              mixpanel.track('Social Proof Viewed', {
+                'type': 'customer_logos',
+                'page': pageName,
+                'campaign': campaign
+              });
+              trustObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        const trustSection = document.querySelector('.trust-section');
+        if (trustSection) trustObserver.observe(trustSection);
+        
+        // Track metrics ticker view
+        const metricsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              mixpanel.track('Live Metrics Viewed', {
+                'section': 'metrics_ticker',
+                'page': pageName,
+                'campaign': campaign
+              });
+              metricsObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.8 });
+        
+        const metricsTicker = document.querySelector('.metrics-ticker');
+        if (metricsTicker) metricsObserver.observe(metricsTicker);
+        
+        // Track exit intent
+        document.addEventListener('mouseleave', (e) => {
+          if (e.clientY <= 0) {
+            mixpanel.track('Exit Intent Triggered', {
+              'page': pageName,
+              'campaign': campaign,
+              'time_on_page': Math.round((Date.now() - startTime) / 1000),
+              'scroll_depth': scrollDepthReached
+            });
+          }
+        });
+        
+        // Track tab visibility changes
+        document.addEventListener('visibilitychange', () => {
+          mixpanel.track(document.hidden ? 'Tab Backgrounded' : 'Tab Foregrounded', {
+            'page': pageName,
+            'campaign': campaign,
+            'time_elapsed': Math.round((Date.now() - startTime) / 1000)
+          });
+        });
+        
+        // Track when user is about to leave
+        window.addEventListener('beforeunload', () => {
+          mixpanel.track('Session End', {
+            'page': pageName,
+            'campaign': campaign,
+            'total_time': Math.round((Date.now() - startTime) / 1000),
+            'engagement_time': engagementTime,
+            'max_scroll': scrollDepthReached
+          });
+        });
+        
+        // Track copy events (user copying text)
+        document.addEventListener('copy', () => {
+          const selection = window.getSelection().toString();
+          if (selection) {
+            mixpanel.track('Content Copied', {
+              'copied_text': selection.substring(0, 50),
+              'page': pageName,
+              'campaign': campaign
+            });
+          }
+        });
+        
+        // Track link clicks
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            mixpanel.track('Link Clicked', {
+              'link_text': this.textContent,
+              'link_url': this.href,
+              'page': pageName,
+              'campaign': campaign
+            });
+          });
+        });
+      })();
     </script>
     
     <!-- Load Calendly script with priority -->
