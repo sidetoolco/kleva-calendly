@@ -81,6 +81,9 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -91,6 +94,28 @@
         .logo-img {
             height: 100%;
             width: auto;
+        }
+
+        /* CTA Button */
+        .header-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Main Content */
@@ -323,6 +348,7 @@
             <a href="/" class="logo">
                 <img src="https://www.kleva.co/_astro/kleva-logo.CCE6pgfw.png" alt="Kleva" class="logo-img">
             </a>
+            <a href="#calendario" class="header-cta">Agenda 15 minutos gratis</a>
         </nav>
     </header>
 
@@ -404,7 +430,7 @@
                 </div>
 
                 <!-- Calendly Widget -->
-                <div class="calendly-container">
+                <div class="calendly-container" id="calendario">
                     <div class="calendly-wrapper">
                         <!-- Calendly inline widget begin -->
                         <div class="calendly-inline-widget" data-url="https://calendly.com/jack-weaver-sidetool/30-minute-meeting-kleva-static?utm_source=google&utm_medium=search&utm_campaign=high-volume" style="min-width:320px;height:1050px;"></div>
