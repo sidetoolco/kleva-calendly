@@ -341,47 +341,64 @@
       
       // Initialize Mixpanel
       mixpanel.init("41198e0398c4addb470ebf6d8a528bb7", {
-        debug: false,
-        track_pageview: false,
-        persistence: "localStorage"
+        debug: true,
+        track_pageview: true,
+        persistence: "localStorage",
+        api_host: "https://api.mixpanel.com"
       });
       
-      // Track Page View
+      // Track Page View immediately
+      console.log('Tracking Page View');
       mixpanel.track("Page View", {
         "Page Name": "Main Booking Page",
-        "Referrer URL Path": document.referrer,
+        "Referrer URL Path": document.referrer || "direct",
         "URL": window.location.href,
         "Path": window.location.pathname
       });
       
-      // Track CTA Clicks
+      // Track CTA Clicks and Calendly events
       document.addEventListener('DOMContentLoaded', function() {
-        // Track header CTA clicks
-        const headerCTA = document.querySelector('.header-cta');
-        if (headerCTA) {
-          headerCTA.addEventListener('click', function() {
-            mixpanel.track("CTA Clicked", {
-              "cta_location": "header",
-              "cta_text": this.textContent,
-              "page": "Main Booking Page"
-            });
-          });
-        }
+        console.log('DOM loaded, setting up event listeners');
         
-        // Track when Calendly widget is loaded (proxy for Demo Booked intent)
-        if (window.Calendly) {
-          window.addEventListener('message', function(e) {
-            if (e.origin === 'https://calendly.com') {
-              if (e.data.event === 'calendly.event_scheduled') {
-                mixpanel.track("Demo Booked", {
-                  "demo_booked": true,
-                  "source": "main_page",
+        // Since there's no header CTA on main page, we'll track any Calendly interactions
+        // Track when someone scrolls to Calendly section
+        const calendlyContainer = document.querySelector('.calendly-container');
+        if (calendlyContainer) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                console.log('Calendly widget viewed');
+                mixpanel.track("Calendly Widget Viewed", {
                   "page": "Main Booking Page"
                 });
+                observer.unobserve(entry.target);
               }
-            }
-          });
+            });
+          }, { threshold: 0.5 });
+          observer.observe(calendlyContainer);
         }
+        
+        // Listen for Calendly events
+        window.addEventListener('message', function(e) {
+          console.log('Received message from:', e.origin);
+          if (e.origin === 'https://calendly.com') {
+            console.log('Calendly event:', e.data);
+            if (e.data.event === 'calendly.event_scheduled') {
+              console.log('Demo booked!');
+              mixpanel.track("Demo Booked", {
+                "demo_booked": true,
+                "source": "main_page",
+                "page": "Main Booking Page"
+              });
+            }
+            if (e.data.event === 'calendly.page_height') {
+              console.log('Calendly loaded');
+              mixpanel.track("Calendly Loaded", {
+                "page": "Main Booking Page"
+              });
+            }
+          }
+        });
       });
     </script>
     

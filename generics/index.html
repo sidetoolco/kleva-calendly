@@ -678,15 +678,17 @@
       
       // Initialize Mixpanel
       mixpanel.init("41198e0398c4addb470ebf6d8a528bb7", {
-        debug: false,
-        track_pageview: false,
-        persistence: "localStorage"
+        debug: true,
+        track_pageview: true,
+        persistence: "localStorage",
+        api_host: "https://api.mixpanel.com"
       });
       
-      // Track Page View
+      // Track Page View immediately
+      console.log('Tracking Page View - Generics');
       mixpanel.track("Page View", {
         "Page Name": "Generics - Automatización de Cobranza",
-        "Referrer URL Path": document.referrer,
+        "Referrer URL Path": document.referrer || "direct",
         "URL": window.location.href,
         "Path": window.location.pathname,
         "Campaign": "generics",
@@ -708,21 +710,41 @@
           });
         }
         
-        // Track when Calendly widget is loaded (proxy for Demo Booked intent)
-        if (window.Calendly) {
-          window.addEventListener('message', function(e) {
-            if (e.origin === 'https://calendly.com') {
-              if (e.data.event === 'calendly.event_scheduled') {
-                mixpanel.track("Demo Booked", {
-                  "demo_booked": true,
-                  "source": "generics",
+        
+        // Track when someone scrolls to Calendly
+        const calendlyContainer = document.querySelector('.calendly-container');
+        if (calendlyContainer) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                console.log('Calendly widget viewed');
+                mixpanel.track("Calendly Widget Viewed", {
                   "page": "Generics - Automatización de Cobranza",
                   "campaign": "generics"
                 });
+                observer.unobserve(entry.target);
               }
-            }
-          });
+            });
+          }, { threshold: 0.5 });
+          observer.observe(calendlyContainer);
         }
+        
+        // Listen for Calendly events
+        window.addEventListener('message', function(e) {
+          console.log('Received message from:', e.origin);
+          if (e.origin === 'https://calendly.com') {
+            console.log('Calendly event:', e.data);
+            if (e.data.event === 'calendly.event_scheduled') {
+              console.log('Demo booked!');
+              mixpanel.track("Demo Booked", {
+                "demo_booked": true,
+                "source": "generics",
+                "page": "Generics - Automatización de Cobranza",
+                "campaign": "generics"
+              });
+            }
+          }
+        });
       });
     </script>
     
