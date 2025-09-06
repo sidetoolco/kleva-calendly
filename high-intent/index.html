@@ -203,6 +203,45 @@
             color: var(--color-gray-300);
         }
 
+        /* Benefits List */
+        .benefits-container {
+            background: linear-gradient(135deg, #667eea10 0%, #9333ea10 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .benefits-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-black);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .benefit-check {
+            color: var(--color-primary);
+            font-size: 1.25rem;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            color: var(--color-gray-700);
+        }
+
         /* AI Stats Banner */
         .ai-stats-banner {
             background: linear-gradient(135deg, #667eea15 0%, #9333ea15 100%);
@@ -556,6 +595,37 @@
                         <span class="ticker-label">Tasa de Éxito:</span>
                         <span class="ticker-value">73%</span>
                     </span>
+                </div>
+
+                <!-- Key Benefits from Ad Copy -->
+                <div class="benefits-container">
+                    <h2 class="benefits-title">Kleva, la IA que Reduce hasta 70% tus Costos y Recupera +25% de Deuda</h2>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Software de Cobranzas con AI integrada</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">IA para Reducción de Mora comprobada</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">IA para gestión de deudores 24/7</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Programa de Cobranzas con AI personalizable</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">+900k Minutos en Chats/Mes procesados</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Tu asistente de Cobranzas siempre activo</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- AI Stats Banner -->

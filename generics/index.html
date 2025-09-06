@@ -202,6 +202,45 @@
             color: var(--color-gray-300);
         }
 
+        /* Benefits List */
+        .benefits-container {
+            background: linear-gradient(135deg, #10b98110 0%, #05966910 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .benefits-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-black);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .benefit-check {
+            color: var(--color-green);
+            font-size: 1.25rem;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            color: var(--color-gray-700);
+        }
+
         /* Automation Features */
         .automation-showcase {
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
@@ -501,36 +540,67 @@
                     </span>
                 </div>
 
+                <!-- Key Benefits from Ad Copy -->
+                <div class="benefits-container">
+                    <h2 class="benefits-title">El Único Sistema Completo de Cobranzas IA para Financieras en Latam</h2>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Software de Cobranzas con AI integrada</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">IA para Reducción de Mora comprobada</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">IA para gestión de deudores 24/7</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Programa de Cobranzas con AI personalizable</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">+900k Minutos en Chats/Mes procesados</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-check">✓</span>
+                            <span class="benefit-text">Tu asistente de Cobranzas siempre activo</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Automation Showcase -->
                 <div class="automation-showcase">
-                    <h2 class="automation-title">Descubre el Sistema Completo de Cobranzas IA para Financieras</h2>
+                    <h2 class="automation-title">Cómo Kleva AI Transforma tu Operación</h2>
                     <div class="automation-grid">
                         <div class="automation-card">
-                            <div class="automation-icon">🔄</div>
-                            <h3 class="automation-card-title">Recordatorios Automáticos</h3>
+                            <div class="automation-icon">🎯</div>
+                            <h3 class="automation-card-title">73% de Éxito en Negociaciones</h3>
                             <p class="automation-card-description">
-                                Sistema inteligente que envía recordatorios de pago personalizados por WhatsApp, SMS y email en el momento óptimo.
+                                Kleva AI, el siguiente nivel en negociaciones con tasa de éxito comprobada.
+                            </p>
+                        </div>
+                        <div class="automation-card">
+                            <div class="automation-icon">🌎</div>
+                            <h3 class="automation-card-title">IA con 45+ Dialectos</h3>
+                            <p class="automation-card-description">
+                                Comunicación perfecta en español y portugués adaptada a cada región.
                             </p>
                         </div>
                         <div class="automation-card">
                             <div class="automation-icon">📊</div>
-                            <h3 class="automation-card-title">Seguimiento de Pagos Pendientes</h3>
+                            <h3 class="automation-card-title">47 Variables Predictivas</h3>
                             <p class="automation-card-description">
-                                Monitoreo automático 24/7 de todas las cuentas con alertas inteligentes y priorización por probabilidad de pago.
+                                Predicción precisa de probabilidad de recuperación de cuentas.
                             </p>
                         </div>
                         <div class="automation-card">
-                            <div class="automation-icon">🎯</div>
-                            <h3 class="automation-card-title">Cobranza Preventiva</h3>
+                            <div class="automation-icon">💰</div>
+                            <h3 class="automation-card-title">Reduce Costos hasta 70%</h3>
                             <p class="automation-card-description">
-                                Identifica cuentas en riesgo antes del vencimiento y activa campañas preventivas automáticas.
-                            </p>
-                        </div>
-                        <div class="automation-card">
-                            <div class="automation-icon">💼</div>
-                            <h3 class="automation-card-title">Gestión de Cartera Vencida</h3>
-                            <p class="automation-card-description">
-                                Automatización completa para recuperación de deuda con estrategias personalizadas por segmento.
+                                Recupera 25% más de deuda mientras reduces drásticamente tus costos operativos.
                             </p>
                         </div>
                     </div>
