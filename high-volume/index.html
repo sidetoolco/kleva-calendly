@@ -165,6 +165,42 @@
             line-height: 1.5;
         }
 
+        /* Metrics ticker */
+        .metrics-ticker {
+            background: var(--color-gray-50);
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ticker-label {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            font-weight: 500;
+        }
+
+        .ticker-value {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+
+        .ticker-separator {
+            color: var(--color-gray-300);
+        }
+
         /* Key Features */
         .features-grid {
             display: grid;
@@ -359,67 +395,84 @@
                 <!-- Section Header -->
                 <div class="section-header">
                     <h1 class="hero-title">
-                        Transforma tu Gestión de Cobranzas con <span class="title-highlight">Tecnología Inteligente</span>
+                        Software de Cobranzas con AI que <span class="title-highlight">Recupera 25% más Deuda</span> con 70% menos Costo
                     </h1>
                     <p class="hero-description">
-                        Sistema integral que optimiza cada etapa del proceso de cobranza. 
-                        Ayudamos a equipos financieros a recuperar más cartera mientras reducen costos operativos.
+                        Kleva, la IA que transforma tus cobranzas con agentes que nunca se cansan, nunca se queman, 
+                        y hablan perfecto español y portugués. Probado en más de 900,000 minutos mensuales en Latinoamérica.
                     </p>
+                </div>
+
+                <!-- Metrics Ticker -->
+                <div class="metrics-ticker">
+                    <span class="ticker-item">
+                        <span class="ticker-label">En Vivo:</span>
+                        <span class="ticker-value">2,834 llamadas concurrentes</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-value">$4M recuperados hasta ahora</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-label">Tasa de Éxito:</span>
+                        <span class="ticker-value">73%</span>
+                    </span>
                 </div>
 
                 <!-- Key Features -->
                 <div class="features-grid">
                     <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">73% de Éxito en Negociaciones</div>
+                        <div class="feature-description">El siguiente nivel en recuperaciones</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌎</div>
+                        <div class="feature-title">IA con 45+ Dialectos</div>
+                        <div class="feature-description">Cobertura total para Latinoamérica</div>
+                    </div>
+                    <div class="feature-card">
                         <div class="feature-icon">📊</div>
-                        <div class="feature-title">CRM Especializado</div>
-                        <div class="feature-description">Sistema completo de gestión de cartera y deudores</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <div class="feature-title">IA Integrada</div>
-                        <div class="feature-description">Automatización inteligente de cobranzas 24/7</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <div class="feature-title">73% Tasa de Éxito</div>
-                        <div class="feature-description">Negociaciones efectivas con IA avanzada</div>
+                        <div class="feature-title">47 Variables Predictivas</div>
+                        <div class="feature-description">Probabilidad de recuperación precisa</div>
                     </div>
                 </div>
 
                 <!-- Benefits -->
                 <div class="benefits-container">
-                    <h2 class="benefits-title">Todo lo que Necesitas para una Cobranza Más Eficiente</h2>
+                    <h2 class="benefits-title">El Único Sistema Completo de Cobranzas IA para Financieras en Latam</h2>
                     <div class="benefits-list">
                         <div class="benefit-item">
                             <span class="benefit-check">✓</span>
-                            <span class="benefit-text">Sistema completo de gestión de cartera vencida</span>
+                            <span class="benefit-text">Software de Cobranzas con AI integrada</span>
                         </div>
                         <div class="benefit-item">
                             <span class="benefit-check">✓</span>
-                            <span class="benefit-text">CRM especializado para equipos de cobranza</span>
+                            <span class="benefit-text">IA para Reducción de Mora comprobada</span>
                         </div>
                         <div class="benefit-item">
                             <span class="benefit-check">✓</span>
-                            <span class="benefit-text">Automatización de procesos manuales</span>
+                            <span class="benefit-text">IA para gestión de deudores 24/7</span>
                         </div>
                         <div class="benefit-item">
                             <span class="benefit-check">✓</span>
-                            <span class="benefit-text">Integración con sistemas bancarios</span>
+                            <span class="benefit-text">Programa de Cobranzas con AI personalizable</span>
                         </div>
                         <div class="benefit-item">
                             <span class="benefit-check">✓</span>
-                            <span class="benefit-text">Reportes y análisis en tiempo real</span>
+                            <span class="benefit-text">+900k Minutos en Chats/Mes procesados</span>
                         </div>
                         <div class="benefit-item">
                             <span class="benefit-check">✓</span>
-                            <span class="benefit-text">Cumplimiento regulatorio garantizado</span>
+                            <span class="benefit-text">Tu asistente de Cobranzas siempre activo</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Trust Section -->
                 <div class="trust-section">
-                    <p class="trust-label">Software de cobranzas usado por líderes financieros</p>
+                    <p class="trust-label">Afortunados de trabajar con estas empresas</p>
                     <div class="logos-container">
                         <img src="logos/vana-logo.png" alt="VANA" class="client-logo">
                         <img src="logos/adt.png" alt="ADT" class="client-logo">

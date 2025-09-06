@@ -166,6 +166,42 @@
             line-height: 1.5;
         }
 
+        /* Metrics ticker */
+        .metrics-ticker {
+            background: var(--color-gray-50);
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ticker-label {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            font-weight: 500;
+        }
+
+        .ticker-value {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+
+        .ticker-separator {
+            color: var(--color-gray-300);
+        }
+
         /* Automation Features */
         .automation-showcase {
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
@@ -440,17 +476,34 @@
                 <!-- Section Header -->
                 <div class="section-header">
                     <h1 class="hero-title">
-                        Simplifica tu Cobranza con <span class="title-highlight">Automatización Inteligente</span>
+                        IA que <span class="title-highlight">Reduce hasta 70% tus Costos</span> y Recupera +25% de Deuda
                     </h1>
                     <p class="hero-description">
-                        Herramientas que optimizan el seguimiento de pagos y la comunicación con deudores. 
-                        Libera a tu equipo para enfocarse en casos que realmente requieren atención personalizada.
+                        Transforma tus cobranzas con agentes IA que nunca se cansan, nunca se queman, 
+                        y hablan perfecto español y portugués. Probado en más de 900,000 minutos mensuales en Latinoamérica.
                     </p>
+                </div>
+
+                <!-- Metrics Ticker -->
+                <div class="metrics-ticker">
+                    <span class="ticker-item">
+                        <span class="ticker-label">En Vivo:</span>
+                        <span class="ticker-value">2,834 llamadas concurrentes</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-value">$4M recuperados hasta ahora</span>
+                    </span>
+                    <span class="ticker-separator">•</span>
+                    <span class="ticker-item">
+                        <span class="ticker-label">Tasa de Éxito:</span>
+                        <span class="ticker-value">73%</span>
+                    </span>
                 </div>
 
                 <!-- Automation Showcase -->
                 <div class="automation-showcase">
-                    <h2 class="automation-title">Potencia tu Equipo con Herramientas Inteligentes</h2>
+                    <h2 class="automation-title">Descubre el Sistema Completo de Cobranzas IA para Financieras</h2>
                     <div class="automation-grid">
                         <div class="automation-card">
                             <div class="automation-icon">🔄</div>
@@ -485,7 +538,7 @@
 
                 <!-- Process Timeline -->
                 <div class="process-section">
-                    <h2 class="process-title">Tu Camino hacia una Cobranza Más Eficiente</h2>
+                    <h2 class="process-title">Comienza Hoy con Kleva AI - Implementación Simple</h2>
                     <div class="process-timeline">
                         <div class="process-step">
                             <h3 class="process-step-title">1. Integración Instantánea</h3>
@@ -508,26 +561,26 @@
 
                 <!-- ROI Section -->
                 <div class="roi-section">
-                    <h2 class="roi-title">Resultados que Impulsan tu Crecimiento</h2>
+                    <h2 class="roi-title">Métricas Comprobadas con Kleva AI</h2>
                     <div class="roi-stats">
                         <div class="roi-stat">
-                            <div class="roi-value">85%</div>
-                            <div class="roi-label">Reducción trabajo manual</div>
+                            <div class="roi-value">73%</div>
+                            <div class="roi-label">Éxito en Negociaciones</div>
                         </div>
                         <div class="roi-stat">
-                            <div class="roi-value">3x</div>
-                            <div class="roi-label">Más contactos efectivos</div>
+                            <div class="roi-value">+900k</div>
+                            <div class="roi-label">Minutos en Chats/Mes</div>
                         </div>
                         <div class="roi-stat">
-                            <div class="roi-value">45%</div>
-                            <div class="roi-label">Menor tiempo de recuperación</div>
+                            <div class="roi-value">45+</div>
+                            <div class="roi-label">Dialectos de IA</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Trust Section -->
                 <div class="trust-section">
-                    <p class="trust-label">Plataforma de automatización elegida por bancos líderes</p>
+                    <p class="trust-label">Afortunados de trabajar con estas empresas</p>
                     <div class="logos-container">
                         <img src="logos/vana-logo.png" alt="VANA" class="client-logo">
                         <img src="logos/adt.png" alt="ADT" class="client-logo">
